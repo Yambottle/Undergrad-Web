@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-10-26 11:09:11 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.entity.Inoutcome" table="inoutcome" catalog="ecommdb" optimistic-lock="version">
+        <id name="ioid" type="java.lang.Integer">
+            <column name="ioid" />
+            <generator class="identity" />
+        </id>
+        <property name="money" type="float">
+            <column name="money" precision="12" scale="0" not-null="true" />
+        </property>
+        <property name="des" type="string">
+            <column name="des" length="50" not-null="true" />
+        </property>
+        <property name="date" type="timestamp">
+            <column name="date" length="19" not-null="true" />
+        </property>
+        <property name="isinout" type="boolean">
+            <column name="isinout" not-null="true">
+                <comment>true:in/false:out</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

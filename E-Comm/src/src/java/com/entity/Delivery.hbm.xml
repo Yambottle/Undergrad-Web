@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-10-26 11:09:11 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.entity.Delivery" table="delivery" catalog="ecommdb" optimistic-lock="version">
+        <id name="deliveid" type="java.lang.Integer">
+            <column name="deliveid" />
+            <generator class="identity" />
+        </id>
+        <property name="deliveinfo" type="string">
+            <column name="deliveinfo" length="50" not-null="true" />
+        </property>
+        <property name="senddate" type="timestamp">
+            <column name="senddate" length="19" not-null="true" />
+        </property>
+        <property name="arrdate" type="timestamp">
+            <column name="arrdate" length="19" />
+        </property>
+        <property name="money" type="float">
+            <column name="money" precision="12" scale="0" not-null="true" />
+        </property>
+        <set name="orders" table="order" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="deliveid" not-null="true" />
+            </key>
+            <one-to-many class="com.entity.Order" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/ecommdb?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">ecomm</property>
+    <property name="hibernate.connection.password">ecomm</property>
+    <property name="hibernate.current_session_context_class">jta</property>
+    <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
+    <property name="hibernate.show_sql">true</property>
+    <mapping resource="com/entity/Merchandise.hbm.xml"/>
+    <mapping resource="com/entity/Inoutcome.hbm.xml"/>
+    <mapping resource="com/entity/Order.hbm.xml"/>
+    <mapping resource="com/entity/Merpic.hbm.xml"/>
+    <mapping resource="com/entity/Manager.hbm.xml"/>
+    <mapping resource="com/entity/Cart.hbm.xml"/>
+    <mapping resource="com/entity/Delivery.hbm.xml"/>
+    <mapping resource="com/entity/Saler.hbm.xml"/>
+    <mapping resource="com/entity/Buyer.hbm.xml"/>
+    <mapping resource="com/entity/Recommendation.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

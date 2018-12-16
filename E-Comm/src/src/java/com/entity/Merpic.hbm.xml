@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-10-26 11:09:11 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.entity.Merpic" table="merpic" catalog="ecommdb" optimistic-lock="version">
+        <id name="pid" type="java.lang.Integer">
+            <column name="pid" />
+            <generator class="identity" />
+        </id>
+        <property name="p0" type="binary">
+            <column name="p0" />
+        </property>
+        <property name="p1" type="binary">
+            <column name="p1" />
+        </property>
+        <property name="p2" type="binary">
+            <column name="p2" />
+        </property>
+        <property name="p3" type="binary">
+            <column name="p3" />
+        </property>
+        <property name="p4" type="binary">
+            <column name="p4" />
+        </property>
+        <property name="p5" type="binary">
+            <column name="p5" />
+        </property>
+        <property name="p6" type="binary">
+            <column name="p6" />
+        </property>
+        <property name="p7" type="binary">
+            <column name="p7" />
+        </property>
+        <property name="p8" type="binary">
+            <column name="p8" />
+        </property>
+        <set name="merchandises" table="merchandise" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="pid" not-null="true" />
+            </key>
+            <one-to-many class="com.entity.Merchandise" />
+        </set>
+    </class>
+</hibernate-mapping>

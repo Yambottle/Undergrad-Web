@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-10-26 11:09:11 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.entity.Order" table="order" catalog="ecommdb" optimistic-lock="version">
+        <id name="oid" type="java.lang.Integer">
+            <column name="oid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="buyer" class="com.entity.Buyer" fetch="select">
+            <column name="bid" not-null="true" />
+        </many-to-one>
+        <many-to-one name="delivery" class="com.entity.Delivery" fetch="select">
+            <column name="deliveid" not-null="true" />
+        </many-to-one>
+        <many-to-one name="merchandise" class="com.entity.Merchandise" fetch="select">
+            <column name="mid" not-null="true" />
+        </many-to-one>
+        <property name="quantity" type="int">
+            <column name="quantity" not-null="true" />
+        </property>
+        <property name="total" type="float">
+            <column name="total" precision="12" scale="0" not-null="true" />
+        </property>
+        <property name="odiscount" type="float">
+            <column name="odiscount" precision="12" scale="0" not-null="true">
+                <comment>oDiscount&#182;&#169;&#181;&#165;&#211;&#197;&#187;&#221;&#163;&#168;&#200;&#253;&#184;&#246;&#201;&#204;&#198;&#183;&#210;&#187;&#198;&#240;&#185;&#186;
+                &#194;&#242;&#163;&#169;</comment>
+            </column>
+        </property>
+        <property name="ispay" type="boolean">
+            <column name="ispay" not-null="true" />
+        </property>
+        <property name="isarrive" type="boolean">
+            <column name="isarrive" not-null="true" />
+        </property>
+        <property name="startdate" type="timestamp">
+            <column name="startdate" length="19" not-null="true" />
+        </property>
+        <property name="enddate" type="timestamp">
+            <column name="enddate" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

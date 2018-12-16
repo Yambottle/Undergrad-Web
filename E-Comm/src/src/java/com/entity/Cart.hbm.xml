@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-10-26 11:09:11 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.entity.Cart" table="cart" catalog="ecommdb" optimistic-lock="version">
+        <id name="cid" type="java.lang.Integer">
+            <column name="cid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="buyer" class="com.entity.Buyer" fetch="select">
+            <column name="bid" not-null="true" />
+        </many-to-one>
+        <many-to-one name="merchandise" class="com.entity.Merchandise" fetch="select">
+            <column name="mid" not-null="true" />
+        </many-to-one>
+        <property name="quantity" type="int">
+            <column name="quantity" not-null="true" />
+        </property>
+        <property name="total" type="float">
+            <column name="total" precision="12" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

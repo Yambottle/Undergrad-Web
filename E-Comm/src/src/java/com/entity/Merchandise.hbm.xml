@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-10-26 11:09:11 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.entity.Merchandise" table="merchandise" catalog="ecommdb" optimistic-lock="version">
+        <id name="mid" type="java.lang.Integer">
+            <column name="mid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="merpic" class="com.entity.Merpic" fetch="select">
+            <column name="pid" not-null="true" />
+        </many-to-one>
+        <many-to-one name="saler" class="com.entity.Saler" fetch="select">
+            <column name="sid" not-null="true" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="name" length="20" not-null="true" />
+        </property>
+        <property name="specialInfo1" type="string">
+            <column name="specialInfo1" length="15">
+                <comment>name&amp;speInfo&#185;&#178;&#205;&#172;&#197;&#208;&#177;&#240; &#210;&#187;&#184;&#246;&#201;&#204;&#198;&#183;</comment>
+            </column>
+        </property>
+        <property name="specialInfo2" type="string">
+            <column name="specialInfo2" length="20" />
+        </property>
+        <property name="category" type="string">
+            <column name="category" length="10" not-null="true" />
+        </property>
+        <property name="quantity" type="int">
+            <column name="quantity" not-null="true" />
+        </property>
+        <property name="des" type="string">
+            <column name="des" length="50" not-null="true" />
+        </property>
+        <property name="price" type="float">
+            <column name="price" precision="12" scale="0" not-null="true" />
+        </property>
+        <property name="mdiscount" type="float">
+            <column name="mDiscount" precision="12" scale="0" not-null="true" />
+        </property>
+        <set name="carts" table="cart" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="mid" not-null="true" />
+            </key>
+            <one-to-many class="com.entity.Cart" />
+        </set>
+        <set name="recommendations" table="recommendation" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="mid" not-null="true" />
+            </key>
+            <one-to-many class="com.entity.Recommendation" />
+        </set>
+        <set name="orders" table="order" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="mid" not-null="true" />
+            </key>
+            <one-to-many class="com.entity.Order" />
+        </set>
+    </class>
+</hibernate-mapping>
